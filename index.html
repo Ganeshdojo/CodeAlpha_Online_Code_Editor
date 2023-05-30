@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <title>Live Code Editor</title>
+</head>
+
+<body>
+    <div id="container">
+        <div class="tabContainer">
+        <!-- Text area for Html Code  -->
+        <div class="tabNames">
+            <button onclick="getEditor(0)"><img src="./images/html.png" class="logo">HTML</button>
+            <button onclick="getEditor(1)"><img src="./images/css.png" class="logo">CSS</button>
+            <button onclick="getEditor(2)"><img src="./images/js.png" class="logo">JS</button>
+                <div class="iconContainer" onclick="editorFullscreenOperations()">
+                    <svg class="in-fullScreen" xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 0 30 30" width="25px" fill="#000000">
+                        <path d="M0 0h24v24H0V0z" fill="none" />
+                        <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" />
+                    </svg>
+                    <svg class="in-exitFullScreen" xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 0 30 30" width="25px" fill="#000000">
+                        <path d="M0 0h24v24H0V0z" fill="none" />
+                        <path d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z" />
+                    </svg>
+            </div>
+        </div>
+            <div class="flexContainer tabPanel">
+                <div class="contentHolder">
+                    <textarea id="htmlCode" class="content" placeholder="Type HTML code here" spellcheck="false" oninput="update(0)" onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}if(event.keyCode==8){update(1);}"></textarea>
+                </div>
+            </div>
+            <!-- Text area for Css Code  -->
+            <div class="flexContainer tabPanel">
+                <div class="contentHolder">
+                    <textarea id="cssCode" class="content" placeholder="Type CSS code here" spellcheck="false" oninput="update(0)" onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}if(event.keyCode==8){update(1);}"></textarea>
+                </div>
+            </div>
+            <!-- Text area for Javascript Code  -->
+            <div class="flexContainer tabPanel">
+                <div class="contentHolder">
+                    <textarea id="javascriptCode" class="content" spellcheck="false" placeholder="Type JavaScript code here" oninput="update(0)" onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}if(event.keyCode==8){update(1);}"></textarea>
+                </div>
+            </div>
+            
+        </div>
+            <div class="outputHolder flexContainer">
+                <div class="bar">
+                    <div class="bleft">
+                        <p class="outputPara">Output</p>
+                    </div>
+                    <div class="theme-toggle">
+                        <span></span>
+                    </div>
+                    <div class="bRight" onclick="outputFullscreenOperations()">
+                        <svg class="fullScreen" xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 0 30 30" width="25px" fill="#000000">
+                            <path d="M0 0h24v24H0V0z" fill="none" />
+                            <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" />
+                        </svg>
+                        <svg class="exitFullScreen" xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 0 30 30" width="25px" fill="#000000">
+                            <path d="M0 0h24v24H0V0z" fill="none" />
+                            <path d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="contentHolder">
+                    <iframe id="output" class="content"></iframe>
+                </div>
+            </div>
+    </div>
+    <p class="footer">Designed And Developed<a href="https://github.com/Ganeshdojo" target="_blank">. @Ganesh</a></p>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+</html>

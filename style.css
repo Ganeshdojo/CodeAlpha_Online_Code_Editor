@@ -1,0 +1,329 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+/* dark Theme */
+:root{
+    --bg: #BABABA;
+    --editor-footer-color: #E6E6E6;
+    --editor-bg: #ffffff;
+    --editor-text-color: #000000;
+    --footer-color: #000000de;
+    --minimal-color: #ef1e65;
+    --toggle-color: #a1a0a0;
+    --toggle-circle-color: #000000;
+    --btn-hover-color: #d6d3d3;
+}
+
+
+/* light Theme */
+.active-dark{
+    --bg: #24242b;
+    --editor-footer-color: #373737;
+    --editor-text-color: #ffffff;
+    --editor-bg: #000000;
+    --footer-color: #ffffffde;
+    --toggle-color: #000000;
+    --toggle-circle-color: #BABABA;
+    --btn-hover-color: #313136;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+}
+#container {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    gap: 5px;
+}
+.theme-toggle
+{
+    width: 40px;
+    height: 19px;
+    background: var(--toggle-color);
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 10%;
+}
+.theme-toggle span
+{
+    width: 13px;
+    height: 13px;
+    background: var(--toggle-circle-color);
+    display: inline-block;
+    border-radius: 50px;
+    margin-left: 3px;
+    transition: .2s;
+}
+.theme-toggle span.active-btn
+{
+    margin-left: 24px;
+}
+.tabContainer{
+    width: 100%;
+    height: 100%;
+}
+.tabContainer .tabNames{
+    height: 7%;
+    width: 100%;
+}
+.tabContainer .tabNames .logo
+{
+    max-width: 15px;
+    max-height: 15px;
+}
+.tabContainer .tabNames button{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 28%;
+    height: 100%;
+    float: left;
+    border: none;
+    outline:none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 16px;
+    color: var(--editor-text-color);
+    background-color: var(--editor-footer-color);
+    font-weight: 500;
+}
+.tabContainer .tabNames button:hover{
+    background-color: var(--btn-hover-color);
+    color: var(--minimal-color);
+}
+.tabContainer .tabPanel{
+    height: 93%;
+    color: var(--editor-bg);
+    text-align: center;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 22px;
+    padding-top: 10px;
+    display: none;
+}
+
+
+textarea {
+    font-family: monospace, sans-serif;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    outline: none;
+    border: none;
+    resize: none;
+    color: var(--editor-text-color);
+    font-size: 16px;
+    border-top: none;
+    background-color: transparent;
+}
+textarea::placeholder{
+    color: var(--editor-text-color);
+    font-size: 16px;
+}
+
+.flexContainer {
+    background-color: var(--editor-bg);
+}
+body
+{
+    background: var(--bg);
+}
+.contentHolder{
+    width: 100%;
+    height: 90%;
+    padding-right: 12px;
+    border: none;
+    padding: 10px;
+}
+.content::-webkit-scrollbar {
+    width: 2.5px;
+}
+.content::-webkit-scrollbar:hover {
+    width: 10px;
+}
+.content::-webkit-scrollbar-thumb {
+    background-color: var(--minimal-color);
+    border: 0.1px solid var(--minimal-color);
+    outline: none;
+    border-radius: 20px;
+    padding-right: 10px;
+}
+.iconContainer
+{
+    display: flex;
+    justify-content:end;
+    align-items: center;
+    background-color: var(--editor-footer-color);
+    height: 100%;
+}
+svg
+{
+    margin-right: 20px;
+    margin-top: 10px;
+    fill: var(--editor-text-color);
+}
+.iconContainer.active .in-fullScreen
+{
+    display: none;
+}
+.iconContainer .in-exitFullScreen
+{
+    display: none;
+}
+.iconContainer.active .in-exitFullScreen
+{
+    display: block;
+}
+.outputHolder.active
+{
+    display: none;
+}
+#container.active
+{
+    grid-template-columns: repeat(1,1fr);
+}
+.bar {
+    width: 100%;
+    height: 7%;
+    background-color: var(--editor-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px;
+}
+.bRight
+{
+    margin-right: -10px;
+}
+.bRight.active .fullScreen
+{
+    display: none;
+}
+.bRight .exitFullScreen
+{
+    display: none;
+}
+.bRight.active .exitFullScreen
+{
+    display: block;
+}
+.tabContainer.active
+{
+    display: none;
+}
+#container.active
+{
+    grid-template-columns: repeat(1,1fr);
+}
+.outputPara {
+    font-family: 'poppins';
+    margin-left: 20px;
+    font-weight: 600;
+    color: var(--editor-text-color);
+}
+
+#output {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: 1px solid white;
+    border-top: none;
+}
+.outputHolder{
+    display: flex;
+    flex-direction: column;
+}
+
+.outputHolder .bar{
+    background-color: var(--editor-footer-color);
+}
+.outputHolder{
+    background-color: white;
+}
+.outputHolder .contentHolder{
+    padding: 0;
+}
+
+p.footer{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    color: var(--footer-color);
+    background-color: var(--bg);
+    font-weight: 600;
+    padding: 10px;
+    font-size: 12px;
+}
+.footer a{
+    color: #b61048;
+    text-decoration: none;
+}
+.footer a:hover{
+    color: #b61048;
+    text-decoration: underline;
+}
+
+
+@media (max-width: 900px)
+{
+    .tabContainer .tabNames button,
+    .outputHolder .bar,
+    textarea
+    {
+        font-size: 12px;
+    }
+    p.footer
+    {
+        font-size: 9px;
+    }
+    .tabContainer .tabNames .logo
+    {
+        width: 15px;
+        height: 15px;
+    }
+}
+@media (max-width: 700px)
+{
+    .tabContainer .tabNames button,
+    .outputHolder .bar
+    {
+        font-size: 10px;
+    }
+    p.footer
+    {
+        font-size: 8px;
+    }
+    #container{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .tabContainer .tabNames button
+    {
+        height: 40px;
+    }
+    .iconContainer
+    {
+        top: 10%;
+        height: 40px;
+    }
+    .bar{
+        height: 35px;
+    }
+    .theme-toggle
+    {
+        right: 25%;
+    }
+}
